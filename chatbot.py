@@ -6,12 +6,12 @@ from sentence_transformers import SentenceTransformer
 import requests
 import os
 import logging
-from codecarbon import EmissionsTracker  # ✅ Import emissions tracker
+from codecarbon import EmissionsTracker  
 
 # Set up basic logging config
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-GROQ_API_KEY = "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"  # consider storing securely
+GROQ_API_KEY = " "  
 
 # Load model and FAISS index
 logging.info("Loading sentence transformer model...")
