@@ -2,3 +2,6 @@ requests
 pandas
 numpy
 streamlit
+codecarbon
+sentence_transformers
+faiss-cpu

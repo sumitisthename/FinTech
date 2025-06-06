@@ -5,6 +5,9 @@ import json
 import time
 from codecarbon import EmissionsTracker  # type: ignore # ✅ NEW: Import CodeCarbon tracker
 
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+
 # Connect to DB
 conn = sqlite3.connect('financial_news.db')
 cursor = conn.cursor()
@@ -77,7 +80,7 @@ for _, row in df.iterrows():
 
 # Stop tracking and print the carbon emission for this run
 emissions = tracker.stop()
-print(f"[INFO] Total CO₂ emissions: {emissions:.6f} kg")  # ✅ Reports emissions in kilograms
+print(f"[INFO] Total CO2 emissions: {emissions:.6f} kg")  # ✅ Reports emissions in kilograms
 
 conn.close()
 print("[DONE] Summaries, KPIs, and emissions tracking complete.")

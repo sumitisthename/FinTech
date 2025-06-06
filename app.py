@@ -1,6 +1,14 @@
 import streamlit as st
 import sqlite3
 import pandas as pd
+from chatbot import query_bot  # Import the chatbot query function
+
+import os
+os.environ["TORCH_USE_RTLD_GLOBAL"] = "YES"
+
+
+import warnings
+warnings.filterwarnings('ignore')
 
 st.set_page_config(page_title="Summarized Financial News", layout="wide")
 st.title("📈 AI-Powered Financial News Summarizer")
@@ -65,3 +73,13 @@ with tab2:
     st.markdown("### 📈 Distribution Plots")
     st.bar_chart(kpi_df['summary_length'], use_container_width=True)
     st.bar_chart(kpi_df['response_time'], use_container_width=True)
+
+# Tab 3: chatbot
+st.markdown("## 🤖 Ask the Financial News Chatbot")
+
+user_question = st.text_input("Ask a question like 'Which stock is good to invest in today?'")
+
+if st.button("Get Answer") and user_question:
+    with st.spinner("Thinking..."):
+        answer = query_bot(user_question)
+        st.success(answer)
